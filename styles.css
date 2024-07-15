@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  width: 22rem;
+  height: 10rem;
+  position: relative;
+  display: block;
+  background: #f3f3f3;
+  border-radius: 200px;
+  box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2),
+    inset 0px -2px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+label:after {
+  content: "";
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #fff;
+  box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2),
+    inset 0px -2px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  transition: left 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+input:checked + label {
+  background: #141414;
+}
+
+input:checked + label:after {
+  left: calc(100% - 9rem);
+  background: linear-gradient(190deg, #333, #3a3a3a);
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: -1;
+  position: absolute;
+  transition: 1s;
+}
+
+input:checked + label + .background {
+  background: #242424;
+}
+
+label svg {
+  position: absolute;
+  top: 2.5rem;
+  width: 5rem;
+  height: 5rem;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+label svg.sun {
+  left: 2.5rem;
+  animation: rotate-sun 1s 0.7s ease-in-out; /* Added delay */
+  animation-fill-mode: forwards;
+}
+
+.sun path {
+  fill: rgb(255, 204, 0);
+}
+
+label svg.moon {
+  right: 2.5rem;
+  animation: rotate-moon 1s 0.7s ease-in-out; /* Added delay */
+  animation-fill-mode: forwards;
+}
+
+/* Hide the sun icon when the input is checked */
+input:checked + label .sun {
+  opacity: 0;
+}
+
+/* Show the moon icon when the input is checked */
+input:not(:checked) + label .moon {
+  opacity: 0;
+}
+
+input:checked + label .moon {
+  opacity: 1;
+}
+
+input:not(:checked) + label .sun {
+  opacity: 1;
+}
+
+/* Keyframes for rotating the ball */
+@keyframes rotate-moon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-sun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-220deg);
+  }
+}
