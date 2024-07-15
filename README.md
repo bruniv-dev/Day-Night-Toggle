@@ -1,7 +1,7 @@
 Toggle Switch with Sun and Moon Animation
 
 Project Description:
-This project features a visually appealing toggle switch designed to switch between light and dark modes. The switch is represented by a circular button that smoothly transitions its position and background color to indicate the change in mode. Accompanying this transition are animated sun and moon icons that appear after the switch animation completes, providing a clear visual cue for the current mode.
+This project features a visually appealing toggle switch designed to switch between light and dark modes. The switch is represented by a circular button that smoothly transitions its position and background color to indicate the change in mode.
 
 Key Features:
 Smooth Transition: The toggle switch transitions smoothly from one position to another, enhancing the user experience.
